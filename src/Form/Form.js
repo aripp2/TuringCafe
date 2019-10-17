@@ -13,7 +13,16 @@ class Form extends Component {
   }
 
   changeHandler = (e) => {
-    this.setState({ [e.targe.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  makeReservation = (e) => {
+    e.preventDefault()
+    const { addReservation } = this.props
+    const details = {...this.state, id: Date.now()}
+    console.log(details)
+    addReservation(details)
+
   }
 
   render() {
@@ -49,7 +58,9 @@ class Form extends Component {
           placeholder='Number of guests'
           onChange={this.changeHandler}
         />
-        <button>Make Reservation</button>
+        <button
+          onClick={this.makeReservation}
+        >Make Reservation</button>
       </form>
       )
   }

@@ -17,7 +17,6 @@ const ReservationContainer = ({ reservations }) => {
 
   return (
       <section className='resy-container'>
-        <h2>Reservation Container</h2>
           { allResys }
       </section>
     )
