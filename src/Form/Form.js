@@ -8,25 +8,47 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      number: 0
+      number: ''
     }
+  }
+
+  changeHandler = (e) => {
+    this.setState({ [e.targe.name]: e.target.value })
   }
 
   render() {
 
     return (
       <form className='resy-form'>
-        Form
         <input 
           type='text'
           name='name'
           value={this.state.name}
           placeholder='Name'
-          
+          onChange={this.changeHandler}
         />
-        <input />
-        <input />
-        <input />
+        <input 
+          type='text'
+          name='date'
+          value={this.state.date}
+          placeholder='Date (mm/dd)'
+          onChange={this.changeHandler}
+        />
+        <input 
+          type='time'
+          step='600'
+          name='time'
+          value={this.state.time}
+          placeholder='Time'
+          onChange={this.changeHandler}
+        />
+        <input 
+          type='number'
+          name='number'
+          value={this.state.number}
+          placeholder='Number of guests'
+          onChange={this.changeHandler}
+        />
         <button>Make Reservation</button>
       </form>
       )

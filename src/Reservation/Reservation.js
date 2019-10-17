@@ -2,7 +2,7 @@ import React from 'react';
 import './Reservation.scss';
 
 const Reservation = ({ id, name, date, time, number }) => {
-  
+  // console.log('in reservation')
   return (
       <div>
         <h3>{name}</h3>
