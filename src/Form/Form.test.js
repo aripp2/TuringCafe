@@ -22,5 +22,11 @@ describe('Form', () => {
     expect(wrapper.state('name')).toEqual('Amy')
   })
 
-  it('should ')
+  it('should call addReservation when button is clicked', () => {
+    const mockEvent = { preventDefault: jest.fn()}
+    wrapper.instance().makeReservation = jest.fn()
+    wrapper.instance().forceUpdate()
+    wrapper.find('button').simulate('click', mockEvent)
+    expect(wrapper.instance().makeReservation).toHaveBeenCalledWith(mockEvent)
+  })
 })

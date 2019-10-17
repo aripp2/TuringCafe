@@ -37,6 +37,7 @@ class App extends Component {
     return (
       <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
+        {error && <h2>{error}</h2>}
         <Form addReservation={this.addReservation} />
         <ReservationContainer reservations={reservations} cancelReservation={this.cancelReservation}/>
       </main>
