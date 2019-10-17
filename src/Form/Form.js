@@ -20,7 +20,6 @@ class Form extends Component {
     e.preventDefault()
     const { addReservation } = this.props
     const details = {...this.state, id: Date.now()}
-    console.log(details)
     addReservation(details)
 
   }
@@ -47,6 +46,8 @@ class Form extends Component {
           type='time'
           step='600'
           name='time'
+          min="1:00" 
+          max="12:00"
           value={this.state.time}
           placeholder='Time'
           onChange={this.changeHandler}
