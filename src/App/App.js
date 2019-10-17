@@ -2,21 +2,20 @@ import React, { Component } from 'react';
 import Form from '../Form/Form';
 import ReservationContainer from '../ReservationContainer/ReservationContainer';
 import './App.scss';
-import { getReservations, postReservation } from '../apiCalls';
+import { getReservations, postReservation, deleteReservation } from '../apiCalls';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       reservations: [],
-      error: '',
-      isLoading: true
+      error: ''
     }
   }
 
   componentDidMount() {
     getReservations()
-      .then(reservations => this.setState({ reservations, isLoading: false}))
+      .then(reservations => this.setState({ reservations }))
       .catch(err => this.setState({ error: err.message }))
   }
 
@@ -26,14 +25,20 @@ class App extends Component {
       .catch(err => this.setState({ error: err.message }))
   }
 
+  cancelReservation = (id) => {
+    deleteReservation(id)
+      .then(reservations => this.setState({ reservations}))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
   render() {
-    const { reservations, error, isLoading } = this.state
+    const { reservations, error } = this.state
 
     return (
       <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <Form addReservation={this.addReservation} />
-        <ReservationContainer reservations={reservations} />
+        <ReservationContainer reservations={reservations} cancelReservation={this.cancelReservation}/>
       </main>
     )
   }

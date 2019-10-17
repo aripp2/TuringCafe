@@ -31,3 +31,22 @@ export const postReservation = (resy) => {
       return res.json();
     })
 }
+
+export const deleteReservation = (id) => {
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return fetch(`http://localhost:3001/api/v1/reservations/${id}`, options)
+    .then(res => {
+      if(!res.ok) {
+        throw Error('Something went wrong adding your reservation. Try again later')
+      } 
+      return getReservations() 
+
+  })  
+}
+

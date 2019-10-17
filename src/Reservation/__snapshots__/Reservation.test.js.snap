@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reservation should match the snapshot 1`] = `
+<div
+  className="card"
+>
+  <h3>
+    Amy
+  </h3>
+  <h4>
+    10/10
+  </h4>
+  <h4>
+    2:00
+  </h4>
+  <h4>
+    Number of Guests: 
+    2
+  </h4>
+  <button
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
+</div>
+`;

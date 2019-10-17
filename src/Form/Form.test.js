@@ -12,4 +12,15 @@ describe('Form', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })
+
+  it('should update state when changeHandler is called', () => {
+    const mockEvent = { target: {
+      name: 'name',
+      value: 'Amy'
+    }}
+    wrapper.instance().changeHandler(mockEvent)
+    expect(wrapper.state('name')).toEqual('Amy')
+  })
+
+  it('should ')
 })
