@@ -22,12 +22,12 @@ class App extends Component {
 
   render() {
     const { reservations, error, isLoading } = this.state
-    console.log(reservations)
+    // console.log(reservations)
     return (
       <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <Form />
-        <ReservationContainer />
+        <ReservationContainer reservations={reservations}/>
       </main>
     )
   }

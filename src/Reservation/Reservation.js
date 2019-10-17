@@ -1,9 +1,16 @@
 import React from 'react';
 import './Reservation.scss';
 
-const Reservation = () => {
+const Reservation = ({ id, name, date, time, number }) => {
+  
   return (
-      <h2>Reservation</h2>
+      <div>
+        <h3>{name}</h3>
+        <h4>{date}</h4>
+        <h4>{time}</h4>
+        <h4>Number of Guests: {number}</h4>
+        <button>Cancel</button>
+      </div>
     )
 }
 

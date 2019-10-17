@@ -5,7 +5,10 @@ class Form extends Component {
   constructor() {
     super();
     this.state = {
-
+      name: '',
+      date: '',
+      time: '',
+      number: 0
     }
   }
 
@@ -14,7 +17,17 @@ class Form extends Component {
     return (
       <form className='resy-form'>
         Form
-
+        <input 
+          type='text'
+          name='name'
+          value={this.state.name}
+          placeholder='Name'
+          
+        />
+        <input />
+        <input />
+        <input />
+        <button>Make Reservation</button>
       </form>
       )
   }
