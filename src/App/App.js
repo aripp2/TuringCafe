@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import './App.css';
+import Form from '../Form/Form';
+import ReservationContainer from '../ReservationContainer/ReservationContainer';
+import './App.scss';
+import { getReservations } from '../apiCalls';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
+  constructor() {
+    super();
+    this.state = {
+      reservations: [],
+      error: '',
+      isLoading: true
+    }
+  }
 
-        </div>
-        <div className='resy-container'>
-          
-        </div>
-      </div>
+  componentDidMount() {
+    getReservations()
+      .then(reservations => this.setState({ reservations, isLoading: false}))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
+  render() {
+    const { reservations, error, isLoading } = this.state
+    console.log(reservations)
+    return (
+      <main className="App">
+        <h1 className='app-title'>Turing Cafe Reservations</h1>
+        <Form />
+        <ReservationContainer />
+      </main>
     )
   }
 }
